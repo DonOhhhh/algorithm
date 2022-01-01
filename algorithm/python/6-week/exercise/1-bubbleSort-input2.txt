@@ -1,0 +1,17 @@
+4 2 A
+d c b a
+
+4 2 D
+d c b a
+
+26 5 A
+g e i z f q b h s j l r x c o u n y w p m a v d t k
+
+26 14 D
+t a y i d b p x m z f q w r j n k e s h u o l v g c
+
+6 4 A
+f e d c b a
+
+6 4 D
+f e d c b a

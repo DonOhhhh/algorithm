@@ -1,0 +1,1 @@
+print('odd' if(int(input().replace('\ufeff','').strip())%2==1) else 'even')

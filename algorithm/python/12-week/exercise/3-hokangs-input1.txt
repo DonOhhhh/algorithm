@@ -1,0 +1,10 @@
+6 7
+10
+A B C D E F
+A B 10
+A C 15
+B D 12
+B F 15
+C E 10
+D F 1
+F E 5

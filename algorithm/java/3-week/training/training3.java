@@ -39,11 +39,11 @@ public class training3 {
         Scanner sc = new Scanner(System.in);
         int n = Integer.parseInt(sc.nextLine());
         long start,end;
-        // int[] arr = IntStream.rangeClosed(1, n).toArray();
-        // int[][] result = permutation_recursion(arr);
-        Integer[] arr2 = IntStream.rangeClosed(1, n).boxed().toArray(Integer[]::new);
-        Object[][] result = permutation(arr2);
-        Arrays.stream(result).forEach(data->System.out.println(Arrays.toString(data)));
+        int[] arr = IntStream.rangeClosed(1, n).toArray();
+        int[][] result = permutation_recursion(arr);
+        // Integer[] arr2 = IntStream.rangeClosed(1, n).boxed().toArray(Integer[]::new);
+        // Object[][] result = permutation(arr2);
+        // Arrays.stream(result).forEach(data->System.out.println(Arrays.toString(data)));
     }
     
 }

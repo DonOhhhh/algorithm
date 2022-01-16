@@ -1,3 +1,5 @@
+package training;
+
 import java.util.Arrays;
 import java.util.stream.LongStream;
 import java.io.*;
@@ -15,15 +17,20 @@ public class training3 {
         long start = 1;
         long result = 0;
         long mid = end;
+        long answer = 0;
         while(end>=start)
         {
             long tmp = mid;
             result = Arrays.stream(examiners).map(i -> (long)(tmp/i)).reduce(Long::sum).getAsLong();
-            if(m < result) end = mid-1;
-            else if(m > result) start = mid+1;
-            else break;
+            if(m > result) start = mid+1;
+            else
+            {
+                end = mid-1;
+                answer = mid;
+                if(m==result) break;
+            }
             mid = (long)((end+start)/2);
         }
-        System.out.println(mid);
+        System.out.println(answer);
     }
 }

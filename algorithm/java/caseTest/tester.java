@@ -87,14 +87,19 @@ public class tester {
     }
 
     @Test
-    public static void test()
+    public static void test(String input, String answer)
     {
-        assertEquals();
+        assertEquals(answer,0);
     }
 
     public static void main(String[] args) throws IOException{
-        // String path = "D:\\Programming\\algorithm\\java\\7-week\\training\\inputs3.txt";
-        // String[] result = myinput3(path);
-        // String[][] processed = IntStream.range(0, result.length).filter(i -> i%2==0).mapToObj(i -> new String[]{result[i],result[i+1]}).toArray(String[][]::new);
+        String path = "D:\\Programming\\algorithm\\java\\7-week\\training\\inputs4.txt";
+        String[] result = myinput3(path);
+        String[][] processed = IntStream.range(0, result.length).filter(i -> i%2==0).mapToObj(i -> new String[]{result[i],result[i+1]}).toArray(String[][]::new);
+        // Arrays.stream(processed).forEach(arr -> System.out.println(arr[0] + "\n" + arr[1] + "\n"));
+        for(String[] data : processed)
+        {
+            test(data[0],data[1]);
+        }
     }
 }

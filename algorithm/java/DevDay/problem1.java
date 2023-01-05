@@ -31,8 +31,14 @@ public class problem1 {
         return count.values().stream().mapToInt(Integer::intValue).max().getAsInt();
     }
 
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
-        String s = new Scanner(System.in).nextLine();
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        sc.close();
         System.out.println(solution(s));
+
     }
 }

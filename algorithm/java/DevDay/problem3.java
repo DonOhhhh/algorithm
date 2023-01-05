@@ -67,5 +67,6 @@ public class problem3 {
         int[][] edges = IntStream.range(0, info.length-1).mapToObj(i -> Arrays.stream(sc.nextLine().split(" ")).mapToInt(Integer::parseInt).sorted().toArray()).toArray(int[][]::new);
         long[] answer = solution(info, edges);
         System.out.println(Arrays.stream(answer).mapToObj(String::valueOf).collect(Collectors.joining(" ")));
+        sc.close();
     }
 }

@@ -59,5 +59,6 @@ public class problem2 {
             queries.add(Arrays.stream(sc.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray());
         int[][] answer = solution(rc[0],rc[1],maxVirus,queries.stream().toArray(int[][]::new));
         System.out.println(Arrays.stream(answer).map(Arrays::toString).collect(Collectors.joining(", ","[","]")));
+        sc.close();
     }
 }

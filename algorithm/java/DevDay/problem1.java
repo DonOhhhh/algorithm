@@ -1,6 +1,4 @@
-import java.time.chrono.HijrahEra;
 import java.util.*;
-import java.util.stream.*;
 
 public class problem1 {
 

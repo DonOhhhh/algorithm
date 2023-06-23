@@ -1,3 +1,52 @@
+const fs = require("fs");
+
+function solution(input) {
+	const [h, w] = input.shift().map((e) => parseInt(e));
+	const matrix = input.map((row) => row.map((value) => parseInt(value)));
+	let [picCnt, largestWidth] = [0, 0];
+	const dxy = [
+		[1, 0],
+		[0, 1],
+		[-1, 0],
+		[0, -1],
+	];
+	const isInside = (y, x) => 0 <= y && y < h && 0 <= x && x < w;
+	const visited = new Array(h).fill(0).map((_) => new Array(w).fill(false));
+	const bfs = (y, x) => {
+		const queue = [[y, x]];
+		visited[y][x] = true;
+		let width = 1;
+		while (queue.length) {
+			const [curY, curX] = queue.shift();
+			dxy.forEach(([dy, dx]) => {
+				const [ny, nx] = [curY + dy, curX + dx];
+				if (
+					isInside(ny, nx) &&
+					!visited[ny][nx] &&
+					matrix[ny][nx] === 1
+				) {
+					queue.push([ny, nx]);
+					visited[ny][nx] = true;
+					width++;
+				}
+			});
+		}
+		return width;
+	};
+
+	for (let i = 0; i < h; i++) {
+		for (let j = 0; j < w; j++) {
+			if (matrix[i][j] === 1 && !visited[i][j]) {
+				picCnt++;
+				const width = bfs(i, j);
+				largestWidth = largestWidth < width ? width : largestWidth;
+			}
+		}
+	}
+	console.log(picCnt);
+	console.log(largestWidth);
+}
+
 // 여러 줄 입력
 const readline = require("readline");
 const rl = readline.createInterface({
@@ -5,45 +54,11 @@ const rl = readline.createInterface({
 	output: process.stdout,
 });
 
-let input;
+const input = [];
 
 rl.on("line", (line) => {
-	input = line.split("");
+	input.push(line.split(" "));
 }).on("close", () => {
-	const convert = {
-		"(": 2,
-		"[": 3,
-	};
-	let [ans, tmp] = [0, 1];
-	const stack = [];
-	let flag = true;
-	for (let i = 0; i < input.length; i++) {
-		switch (input[i]) {
-			case "(":
-			case "[":
-				tmp *= convert[input[i]];
-				stack.push(input[i]);
-				break;
-			case ")":
-			case "]":
-				if (!stack.length || stack.at(-1) !== "(") {
-					ans = 0;
-					flag = false;
-					break;
-				}
-				if (input[i - 1] === "(" || input[i - 1] === "[") {
-					ans += tmp;
-					tmp /= convert[input[i - 1]];
-					stack.pop();
-				} else {
-					tmp /= convert[input[i - 1]];
-					stack.pop();
-				}
-				break;
-		}
-		if (!flag) break;
-	}
-	if (stack.length) ans = 0;
-	console.log(ans);
+	solution(input);
 	process.exit();
 });

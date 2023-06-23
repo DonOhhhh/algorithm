@@ -1,4 +1,3 @@
-// 여러 줄 입력
 const readline = require("readline");
 const rl = readline.createInterface({
 	input: process.stdin,

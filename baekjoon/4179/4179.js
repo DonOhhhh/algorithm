@@ -101,8 +101,6 @@ function solution(input) {
 		}
 	}
 
-	let answer;
-
 	while (jihoonQueue.size) {
 		const [cy, cx] = jihoonQueue.shift();
 		for (let i = 0; i < 4; i++) {

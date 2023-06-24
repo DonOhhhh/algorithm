@@ -19,7 +19,7 @@ done
 # 시작 번호부터 끝 번호까지 숫자를 반복합니다.
 for i in $(seq $start $end); do
   # 각 명령어의 출력을 비교하고 출력 결과를 temp_output에 저장합니다.
-  diff <(cat ${question}/input/$i | node ${question}/js/${js_file}) <(cat ${question}/answer/$i.a) >.temp_output
+  diff <(cat problems/${question}/input/$i | node problems/${question}/js/${js_file}) <(cat problems/${question}/answer/$i.a) >.temp_output
 
   # 출력 결과를 확인하고 output 파일에 저장할 내용을 준비합니다.
   result="Input $i: "

@@ -22,7 +22,7 @@ for i in $(seq $start $end); do
   diff <(cat ${question}/input/$i | node ${question}/js/${js_file}) <(cat ${question}/answer/$i.a) >.temp_output
 
   # 출력 결과를 확인하고 output 파일에 저장할 내용을 준비합니다.
-  result="숫자 $i: "
+  result="Input $i: "
   if [ -s temp_output ]; then
     result+="차이가 있습니다"
   else
